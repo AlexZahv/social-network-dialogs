@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: otus-social-network-dialogs
+  main:
+    allow-bean-definition-overriding: true
+  data:
+    redis:
+      database: 0
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:password}
+      ssl:
+        enabled: ${REDIS_SSL:false}
+      ttl-seconds: ${REDIS_TTL_SECONDS:600}
+  mvc:
+    dispatch-options-request: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  config: classpath:logback.xml
+  level:
+    org:
+      springframework:
+        messaging: DEBUG
+
